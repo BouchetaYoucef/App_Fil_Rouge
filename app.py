@@ -3,11 +3,13 @@ from PIL import Image
 import pickle
 import pandas as pd
 
+## Variables d'environnement (secrets sur streamlit cloud) ##
 valid_login = st.secrets["VALID_LOGIN"]
 valid_password = st.secrets["VALID_PASSWORD"]
 
+## Fonctions ##
 def loading_model():
-    infile = open('./models/model_2.pkl','rb')
+    infile = open('./model.pkl','rb')
     model = pickle.load(infile)
     infile.close()
     return model
@@ -61,8 +63,10 @@ def check_password():
         # Password correct.
         return True
 
+## Login ##
 if check_password():
 
+    ## Application ##
     img1 = Image.open('image4.jpg')
     img1 = img1.resize((600, 200))
     st.image(img1, use_column_width=False)
@@ -111,45 +115,29 @@ if check_password():
 
     ## ----------------------------------------------------- ## 
 
-    if st.button("Demande de crédit"):
-        ## --- TRAITEMENT DES DONNEES --- ##
-        # infile = open('./models/model_2.pkl','rb')
-        # model = pickle.load(infile)
-        # infile.close()
-        model = loading_model()
+if st.button("Demande de crédit"):
+    model = loading_model()
+    data = [gen, mar, dep, edu, emp, mon_income, 
+            co_mon_income, loan_amt, dur, credit_history, prop]
 
-        # COLUMNS_NAMES = ['Gender', 'Married', 'Dependents', 'Education',
-        # 'Self_Employed', 'ApplicantIncome', 'CoapplicantIncome', 'LoanAmount',
-        # 'Loan_Amount_Term', 'Credit_History', 'Property_Area']
-
-        # if credit_history == "Yes":
-        #     credit_history = 1.0
-        # if credit_history == "No":
-        #     credit_history = 0.0
-
-        data = [gen, mar, dep, edu, emp, mon_income, 
-                co_mon_income, loan_amt, dur, credit_history, prop]
-
-        df = create_user_dataframe(data)
-
-        # df = pd.DataFrame([data], columns=COLUMNS_NAMES)
+    df = create_user_dataframe(data)
         
         ## --- PREDICTION --- ##
-        pred = model.predict(df)
-        proba = model.predict_proba(df)
-        proba_yes_class = round(proba[0][1], 2) * 100
-        proba_no_class = round(proba[0][0], 2) * 100
+    pred = model.predict(df)
+    proba = model.predict_proba(df)
+    proba_yes_class = round(proba[0][1], 2) * 100
+    proba_no_class = round(proba[0][0], 2) * 100
 
-        if pred == "Y":
-            st.success(f"Le demandeur est éligble au credit avec un indicateur de confiance de {int(proba_yes_class)} %")
-        else:
-            st.warning(f"Le demandeur n'est pas éligble au credit avec un indicateur de confiance de {int(proba_no_class)} %")
+if pred == "Y":
+        st.success(f"Le demandeur est éligble au credit avec un indicateur de confiance de {int(proba_yes_class)} %")
+else:
+        st.warning(f"Le demandeur n'est pas éligble au credit avec un indicateur de confiance de {int(proba_no_class)} %")
         
-        # Ajout de la prédiction au tableau de l'utilisateur
-        df["LoanStatus"] = pred
+    # Ajout de la prédiction au tableau de l'utilisateur
+df["LoanStatus"] = pred
 
-        # Télécharge la prediction
-        st.download_button("Télécharger les données d'utilisateur",
-                            df.to_csv(index=False).encode('utf-8'),
-                            "User_data.csv",
-                            "text/csv")
+    # Télécharge la prediction
+st.download_button("Télécharger les données d'utilisateur",
+                        df.to_csv(index=False).encode('utf-8'),
+                        "User_data.csv",
+                        "text/csv")
