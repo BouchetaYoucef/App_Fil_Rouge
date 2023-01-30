@@ -69,7 +69,7 @@ if check_password():
 
     ## Application ##
     img1 = Image.open('image4.jpg')
-    img1 = img1.resize((150, 150))
+    img1 = img1.resize((600, 200))
     st.image(img1, use_column_width=False)
 
     ## --- SELECTIONS DES DONNEES --- ## 
