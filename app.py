@@ -62,6 +62,7 @@ def check_password():
     else:
         # Password correct.
         return True
+    st.download_button("Login",index=False).encode('utf-8')
 
 ## Login ##
 if check_password():
@@ -83,7 +84,7 @@ if check_password():
 
     # No of dependets
     dep_display = ('0', '1', '2', '3+')
-    dep = st.selectbox("Nombre de salarié(s)", dep_display)
+    dep = st.selectbox("Nombre d'enfant(s)", dep_display)
 
     # For edu
     edu_display = ('Not Graduate', 'Graduate')
@@ -99,7 +100,7 @@ if check_password():
 
     # Applicant Monthly Income
     mon_income = float(st.number_input("Revenus demandeur", value=0))
-
+    
     # Credit history
     credit_hst_display = ('Yes', 'No')
     credit_history = st.selectbox("Historique de crédit", credit_hst_display)         
@@ -115,29 +116,30 @@ if check_password():
 
     ## ----------------------------------------------------- ## 
 
-if st.button("Demande de crédit"):
-    model = loading_model()
-    data = [gen, mar, dep, edu, emp, mon_income, 
-            co_mon_income, loan_amt, dur, credit_history, prop]
+    if st.button("Demande de crédit"):
+        model = loading_model()
 
-    df = create_user_dataframe(data)
+        data = [gen, mar, dep, edu, emp, mon_income, 
+                co_mon_income, loan_amt, dur, credit_history, prop]
+
+        df = create_user_dataframe(data)
         
         ## --- PREDICTION --- ##
-    pred = model.predict(df)
-    proba = model.predict_proba(df)
-    proba_yes_class = round(proba[0][1], 2) * 100
-    proba_no_class = round(proba[0][0], 2) * 100
+        pred = model.predict(df)
+        proba = model.predict_proba(df)
+        proba_yes_class = round(proba[0][1], 2) * 100
+        proba_no_class = round(proba[0][0], 2) * 100
 
-if pred == "Y":
-        st.success(f"Le demandeur est éligble au credit avec un indicateur de confiance de {int(proba_yes_class)} %")
-else:
-        st.warning(f"Le demandeur n'est pas éligble au credit avec un indicateur de confiance de {int(proba_no_class)} %")
+        if pred == "Y":
+            st.success(f"Le demandeur est éligble au credit avec un indicateur de confiance de {int(proba_yes_class)} %")
+        else:
+            st.warning(f"Le demandeur n'est pas éligble au credit avec un indicateur de confiance de {int(proba_no_class)} %")
         
-    # Ajout de la prédiction au tableau de l'utilisateur
-df["LoanStatus"] = pred
+        # Ajout de la prédiction au tableau de l'utilisateur
+        df["LoanStatus"] = pred
 
-    # Télécharge la prediction
-st.download_button("Télécharger les données d'utilisateur",
-                        df.to_csv(index=False).encode('utf-8'),
-                        "User_data.csv",
-                        "text/csv")
+        # Télécharge la prediction
+        st.download_button("Télécharger les données d'utilisateur",
+                            df.to_csv(index=False).encode('utf-8'),
+                            "User_data.csv",
+                            "text/csv")
