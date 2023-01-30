@@ -109,7 +109,7 @@ if check_password():
     co_mon_income = float(st.number_input("Revenues co-demandeur", value=0))
 
     # Loan AMount
-    loan_amt = float(st.number_input("Montant du credit", value=0))
+    loan_amt = float(st.number_input("Montant du credit en K-Dollar", value=0))
 
     # loan duration
     dur = float(st.number_input("Durée du credit", value=0))
