@@ -9,9 +9,13 @@ valid_password = st.secrets["VALID_PASSWORD"]
 
 ## Fonctions ##
 def loading_model():
-    infile = open('./model.pkl','rb')
-    model = pickle.load(infile)
-    infile.close()
+    
+    with open('./models/model.pkl','rb') as f:
+    # load using pickle de-serializer
+        model = pickle.load(f)
+    # infile = open('./model.pkl','rb')
+    # model = pickle.load(infile)
+    # infile.close()
     return model
 
 def create_user_dataframe(data):
@@ -57,13 +61,12 @@ def check_password():
         st.text_input(
             "Password", type="password", on_change=password_entered, key="password"
         )
-        st.error("😕 Identifiants incorrects, veuillez réessayer")
+        # st.error("😕 Identifiants incorrects, veuillez réessayer")
         return False
     else:
         # Password correct.
         return True
-    st.download_button("Login",index=False).encode('utf-8')
-
+    
 ## Login ##
 if check_password():
 
