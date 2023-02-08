@@ -62,6 +62,7 @@ def check_password():
             "Password", type="password", on_change=password_entered, key="password"
         )
         # st.error("😕 Identifiants incorrects, veuillez réessayer")
+        st.download_button("Login",index=False).encode('utf-8')
         return False
     else:
         # Password correct.
