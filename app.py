@@ -61,8 +61,8 @@ def check_password():
         st.text_input(
             "Password", type="password", on_change=password_entered, key="password"
         )
-        # st.error("😕 Identifiants incorrects, veuillez réessayer")
-        st.download_button("Login",index=False).encode('utf-8')
+        st.error("😕 Identifiants incorrects, veuillez réessayer")
+        
         return False
     else:
         # Password correct.
@@ -70,6 +70,7 @@ def check_password():
     
 ## Login ##
 if check_password():
+    st.download_button("Login",index=False).encode('utf-8')
 
     ## Application ##
     img1 = Image.open('image4.jpg')
