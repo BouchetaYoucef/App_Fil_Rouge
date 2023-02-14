@@ -1,39 +1,39 @@
 {
     "os": "Windows-10-10.0.19041-SP0",
     "python": "3.8.8",
-    "heartbeatAt": "2022-12-22T19:15:12.096914",
-    "startedAt": "2022-12-22T19:15:09.961182",
+    "heartbeatAt": "2023-02-13T15:27:56.006683",
+    "startedAt": "2023-02-13T15:27:47.226438",
     "docker": null,
     "cuda": null,
     "args": null,
     "state": "running",
-    "program": "Desktop/Notebooks/Dossier_App_Fil_Rouge/Loan_Prediction_ML_Final.ipynb",
-    "root": "C:/Users/simplon/Desktop/Notebooks/Dossier_App_Fil_Rouge",
+    "program": "<python with no main file>",
     "git": {
-        "remote": "https://github.com/BouchetaYoucef/Dossier_App_Fil_Rouge.git",
-        "commit": "f44254027b002672c52971dacd1283e51ca66ef8"
+        "remote": "https://github.com/BouchetaYoucef/App_Fil_Rouge.git",
+        "commit": "7d0fe5ef4a89f146d41301d7c8b3a9aad2ce0d31"
     },
     "email": "youcef.boucheta.simplon@gmail.com",
+    "root": "C:/Users/simplon/Desktop/Notebooks/Dossier_App_Fil_Rouge",
     "host": "DESKTOP-MSDTRNN",
     "username": "simplon",
     "executable": "C:\\Users\\simplon\\anaconda3\\python.exe",
     "cpu_count": 2,
     "cpu_count_logical": 4,
     "cpu_freq": {
-        "current": 2200.0,
+        "current": 2201.0,
         "min": 0.0,
         "max": 2201.0
     },
     "cpu_freq_per_core": [
         {
-            "current": 2200.0,
+            "current": 2201.0,
             "min": 0.0,
             "max": 2201.0
         }
     ],
     "disk": {
         "total": 232.34765243530273,
-        "used": 232.04209518432617
+        "used": 221.66659545898438
     },
     "memory": {
         "total": 15.878032684326172

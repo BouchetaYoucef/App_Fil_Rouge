@@ -1,0 +1,30 @@
+2023-02-13 15:46:23,047 INFO    MainThread:13156 [wandb_setup.py:_flush():68] Configure stats pid to 13156
+2023-02-13 15:46:23,048 INFO    MainThread:13156 [wandb_setup.py:_flush():68] Loading settings from C:\Users\simplon\.config\wandb\settings
+2023-02-13 15:46:23,048 INFO    MainThread:13156 [wandb_setup.py:_flush():68] Loading settings from C:\Users\simplon\Desktop\Notebooks\Dossier_App_Fil_Rouge\notebook\wandb\settings
+2023-02-13 15:46:23,048 INFO    MainThread:13156 [wandb_setup.py:_flush():68] Loading settings from environment variables: {'_require_service': 'True'}
+2023-02-13 15:46:23,049 INFO    MainThread:13156 [wandb_setup.py:_flush():68] Inferring run settings from compute environment: {'program': '<python with no main file>'}
+2023-02-13 15:46:23,085 INFO    MainThread:13156 [wandb_init.py:_log_setup():478] Logging user logs to C:\Users\simplon\Desktop\Notebooks\Dossier_App_Fil_Rouge\notebook\wandb\run-20230213_154623-9orgkmys\logs\debug.log
+2023-02-13 15:46:23,086 INFO    MainThread:13156 [wandb_init.py:_log_setup():479] Logging internal logs to C:\Users\simplon\Desktop\Notebooks\Dossier_App_Fil_Rouge\notebook\wandb\run-20230213_154623-9orgkmys\logs\debug-internal.log
+2023-02-13 15:46:23,086 INFO    MainThread:13156 [wandb_init.py:_jupyter_setup():428] configuring jupyter hooks <wandb.sdk.wandb_init._WandbInit object at 0x0000027F93349FA0>
+2023-02-13 15:46:23,087 INFO    MainThread:13156 [wandb_init.py:init():518] calling init triggers
+2023-02-13 15:46:23,087 INFO    MainThread:13156 [wandb_init.py:init():521] wandb.init called with sweep_config: {}
+config: {'learning_rate': 0.02, 'architecture': 'ML', 'dataset': 'CIFAR-100', 'epochs': 10}
+2023-02-13 15:46:23,087 INFO    MainThread:13156 [wandb_init.py:init():571] starting backend
+2023-02-13 15:46:23,088 INFO    MainThread:13156 [wandb_init.py:init():575] setting up manager
+2023-02-13 15:46:23,095 INFO    MainThread:13156 [backend.py:_multiprocessing_setup():106] multiprocessing start_methods=spawn, using: spawn
+2023-02-13 15:46:23,101 INFO    MainThread:13156 [wandb_init.py:init():582] backend started and connected
+2023-02-13 15:46:23,132 INFO    MainThread:13156 [wandb_run.py:_label_probe_notebook():1202] probe notebook
+2023-02-13 15:46:23,132 INFO    MainThread:13156 [wandb_run.py:_label_probe_notebook():1212] Unable to probe notebook: 'NoneType' object has no attribute 'get'
+2023-02-13 15:46:23,133 INFO    MainThread:13156 [wandb_init.py:init():670] updated telemetry
+2023-02-13 15:46:23,215 INFO    MainThread:13156 [wandb_init.py:init():710] communicating run to backend with 60.0 second timeout
+2023-02-13 15:47:23,757 ERROR   MainThread:13156 [wandb_init.py:init():724] backend process timed out, exiting...
+encountered error: Error communicating with wandb process, exiting...
+For more info see: https://docs.wandb.ai/library/init#init-start-error
+2023-02-13 15:47:23,823 ERROR   MainThread:13156 [wandb_init.py:init():1135] error
+Traceback (most recent call last):
+  File "C:\Users\simplon\anaconda3\lib\site-packages\wandb\sdk\wandb_init.py", line 1108, in init
+    run = wi.init()
+  File "C:\Users\simplon\anaconda3\lib\site-packages\wandb\sdk\wandb_init.py", line 742, in init
+    raise error
+wandb.errors.CommError: Error communicating with wandb process, exiting...
+For more info see: https://docs.wandb.ai/library/init#init-start-error

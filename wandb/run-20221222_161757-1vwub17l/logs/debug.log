@@ -8,7 +8,7 @@
 2022-12-22 16:17:57,175 INFO    MainThread:7376 [wandb_init.py:_jupyter_setup():426] configuring jupyter hooks <wandb.sdk.wandb_init._WandbInit object at 0x000002C9EC968D60>
 2022-12-22 16:17:57,176 INFO    MainThread:7376 [wandb_init.py:init():516] calling init triggers
 2022-12-22 16:17:57,176 INFO    MainThread:7376 [wandb_init.py:init():519] wandb.init called with sweep_config: {}
-config: {'learning_rate': 0.02, 'architecture': 'CNN', 'dataset': 'CIFAR-100', 'epochs': 10}
+config: {'learning_rate': 0.02, 'architecture': 'ML', 'dataset': 'CIFAR-100', 'epochs': 10}
 2022-12-22 16:17:57,176 INFO    MainThread:7376 [wandb_init.py:init():569] starting backend
 2022-12-22 16:17:57,177 INFO    MainThread:7376 [wandb_init.py:init():573] setting up manager
 2022-12-22 16:17:58,477 INFO    MainThread:7376 [backend.py:_multiprocessing_setup():102] multiprocessing start_methods=spawn, using: spawn

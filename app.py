@@ -69,7 +69,7 @@ def check_password():
     
 ## Login ##
 if check_password():
-
+    
     ## Application ##
     img1 = Image.open('image4.jpg')
     img1 = img1.resize((200, 200))
